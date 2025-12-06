@@ -1,106 +1,85 @@
 
-
-
-Python Password Generator
+#Python Password Generator
 
 A fast, secure, and compact password generator module written in Python.
 It supports cryptographically strong passwords and memorable passphrases, with options for length, separators, and special characters. The core logic stays under 50 lines of code.
 
-Overview
+##Overview
 
 This module provides two main styles of password generation:
 
-1. Strong passwords – fully random, cryptographically secure, ideal for logins, API keys, or secrets.
+Strong passwords – fully random, cryptographically secure, ideal for logins, API keys, or secrets.
 
+Memorable passphrases – easier to remember, built from random dictionary words with optional numbers.
 
-2. Memorable passphrases – easier to remember, built from random dictionary words with optional numbers.
+The module uses Python’s secrets library for secure randomness and requires no external dependencies.
 
+##Features
 
+*Cryptographically secure randomness (via secrets)
 
-The module uses Python’s secrets library for secure randomness and does not require any external dependencies.
+*Custom length (default 16)
 
-Features
+*Optional special characters
 
-Cryptographically secure randomness (via secrets)
+*Memorable passphrases with configurable: 
 
-Custom length (default 16 characters)
+*number of words
 
-Optional special characters
+*separator character
 
-Memorable passphrases with configurable:
+*optional trailing number
 
-number of words
+*Works as both a CLI tool and importable module
 
-separator character
+*Single-file implementation
 
-optional trailing number
-
-
-Works as both a CLI tool and an importable Python module
-
-Single-file implementation, easy to read and extend
-
-
-Installation
+##Installation
 
 Clone the repository:
 
-git clone git@github-dorian:dorian-sotpyrc/python-password-generator.git
-cd python-password-generator
+git clone git@github-dorian:dorian-sotpyrc/python-password-generator.git cd python-password-generator 
 
-No additional packages are required beyond the Python standard library.
+No dependencies outside the Python standard library.
 
-Usage
+##Usage
 
 Run as a CLI tool
 
 From the project folder:
 
-python3 password_gen.py
+python3 password_gen.py 
 
-You will be prompted to choose:
+Prompts will ask you for:
 
-Password type: strong or memorable
+Password type (strong or memorable)
 
-Length (for strong passwords)
+Length (for strong mode)
 
-Separator and trailing number option (for memorable passwords)
-
+Separator / number toggle (for memorable mode)
 
 Use as a Python module
 
-from password_gen import strong_password, memorable_password
+from password_gen import strong_password, memorable_password # Strong 24-character password without special characters print(strong_password(length=24, special=False)) # Memorable 5-word passphrase with dot separators print(memorable_password(words=5, sep=".", number=True)) 
 
-# Example: strong 24-character password without special characters
-print(strong_password(length=24, special=False))
+##Project Structure
 
-# Example: 5-word memorable passphrase separated by dots, with a trailing number
-print(memorable_password(words=5, sep=".", number=True))
+python-password-generator/ ├── password_gen.py # Main module and CLI logic └── README.md # Documentation 
 
-Project Structure
+##Security Notes
 
-python-password-generator/
-├── password_gen.py   # Main module and CLI logic
-└── README.md         # Project documentation
+Uses secrets.choice, not random.choice (which is insecure)
 
-Security Notes
+Small, auditable codebase
 
-Uses secrets.choice instead of random.choice for all random selection.
-
-Keeps the implementation small and auditable.
-
-The internal word list can be extended to increase variety if needed.
-
-
-SEO Keywords
-
-python password generator, secure password generator, memorable password python, passphrase generator python, cryptographically secure password python, python secrets module example, password generator CLI python.
+Word list can be expanded for more variety
 
 License
 
-This project is released under the MIT License.
+MIT License.
 
 Related PLEX Content
 
-A PLEX article and Medium post will be linked here when published.
-For more tools and tutorials, visit: https://plexdata.online
+A PLEX article and Medium post will be linked once published.
+More tools and tutorials: https://plexdata.online
+
