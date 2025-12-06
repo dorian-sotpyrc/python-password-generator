@@ -1,85 +1,76 @@
-
-#Python Password Generator
+# Python Password Generator
 
 A fast, secure, and compact password generator module written in Python.
 It supports cryptographically strong passwords and memorable passphrases, with options for length, separators, and special characters. The core logic stays under 50 lines of code.
 
-##Overview
+## Overview
 
 This module provides two main styles of password generation:
 
-Strong passwords – fully random, cryptographically secure, ideal for logins, API keys, or secrets.
+- **Strong passwords** – fully random, cryptographically secure, ideal for logins, API keys, or secrets.
+- **Memorable passphrases** – easier to remember, built from random dictionary words with optional numbers.
 
-Memorable passphrases – easier to remember, built from random dictionary words with optional numbers.
+The module uses the Python `secrets` library for secure randomness and requires no external dependencies.
 
-The module uses Python’s secrets library for secure randomness and requires no external dependencies.
+## Features
 
-##Features
+- Cryptographically secure randomness using `secrets`
+- Custom length (default 16)
+- Optional special characters
+- Memorable passphrases with configurable:
+  - number of words
+  - separator character
+  - optional trailing number
+- Works as both a CLI tool and an importable module
+- Single-file implementation
 
-*Cryptographically secure randomness (via secrets)
-
-*Custom length (default 16)
-
-*Optional special characters
-
-*Memorable passphrases with configurable: 
-
-*number of words
-
-*separator character
-
-*optional trailing number
-
-*Works as both a CLI tool and importable module
-
-*Single-file implementation
-
-##Installation
+## Installation
 
 Clone the repository:
 
-git clone git@github-dorian:dorian-sotpyrc/python-password-generator.git cd python-password-generator 
+    git clone git@github-dorian:dorian-sotpyrc/python-password-generator.git
+    cd python-password-generator
 
-No dependencies outside the Python standard library.
+## Usage
 
-##Usage
+### Run as a CLI tool
 
-Run as a CLI tool
-
-From the project folder:
-
-python3 password_gen.py 
+    python3 password_gen.py
 
 Prompts will ask you for:
 
-Password type (strong or memorable)
+- Password type (strong or memorable)
+- Length (for strong mode)
+- Separator or trailing number (for memorable mode)
 
-Length (for strong mode)
+### Use as a Python module
 
-Separator / number toggle (for memorable mode)
+    from password_gen import strong_password, memorable_password
 
-Use as a Python module
+    print(strong_password(length=24, special=False))
+    print(memorable_password(words=5, sep=".", number=True))
 
-from password_gen import strong_password, memorable_password # Strong 24-character password without special characters print(strong_password(length=24, special=False)) # Memorable 5-word passphrase with dot separators print(memorable_password(words=5, sep=".", number=True)) 
+## Project Structure
 
-##Project Structure
+    python-password-generator/
+    ├── password_gen.py
+    └── README.md
 
-python-password-generator/ ├── password_gen.py # Main module and CLI logic └── README.md # Documentation 
+## Security Notes
 
-##Security Notes
+- Uses `secrets.choice`, not `random.choice`
+- Small, auditable codebase
+- Word list can be expanded if desired
 
-Uses secrets.choice, not random.choice (which is insecure)
+## SEO Keywords
 
-Small, auditable codebase
+python password generator, secure password generator, memorable password python, passphrase generator python, cryptographically secure password python, python secrets module example, password generator CLI python
 
-Word list can be expanded for more variety
+## License
 
-License
+MIT License
 
-MIT License.
-
-Related PLEX Content
+## Related PLEX Content
 
 A PLEX article and Medium post will be linked once published.
-More tools and tutorials: https://plexdata.online
-
+More at: https://plexdata.online
