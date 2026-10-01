@@ -72,5 +72,5 @@ MIT License
 
 ## Related PLEX Content
 
-A PLEX article and Medium post will be linked once published.
-More at: https://plexdata.online
+Try the no-install version in your browser: https://plexdata.online/?utm_source=github&utm_medium=repo&utm_campaign=python-password-generator#tool-password
+More from PLEXData: https://plexdata.online/?utm_source=github&utm_medium=repo&utm_campaign=python-password-generator#articles
